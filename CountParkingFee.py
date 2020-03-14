@@ -3,6 +3,10 @@ from datetime import datetime
 from math import ceil
 
 
+# ten plik jest bardzo ładny, bo ma tylko jedną odpowiedzialność,
+# liczby jedynie ile trzeba zapłacić na podstawie daty i yahtu
+# przyjmuje mało wartości i ma jedną odpowiedzielność
+
 class CountParkingFee:
     """Obliczanie stawki za postój"""
 
