@@ -1,3 +1,5 @@
+# nazwa pliku powinna być create_declaration.py
+
 from docx import Document
 from CountParkingFee import CountParkingFee
 
