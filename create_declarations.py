@@ -180,3 +180,6 @@ create_button = Button(root, text='Generuj', width=53, height=3, command=submit)
 create_button.grid(row=22, column=0, columnspan=2, padx=20, pady=10)
 
 root.mainloop()
+
+
+# Dodaj zapis najpotrzebniejszych danych w tabeli

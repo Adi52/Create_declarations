@@ -4,6 +4,7 @@ from math import ceil
 
 class CountParkingFee:
     """Obliczanie stawki za postój"""
+
     def __init__(self, parking_peroid, yacht_lenght, yacht_width):
         self.parking_peroid = parking_peroid
         self.yacht_length = yacht_lenght
