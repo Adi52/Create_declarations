@@ -38,28 +38,27 @@ def submit():
     commissioning_body = {'name': commissioning_body_name.get(), 'address': commissioning_body_address.get(),
                           'tel': commissioning_body_tel.get(), 'e-mail': commissioning_body_email.get(),
                           'nip': commissioning_body_nip.get()}
-
+    yaht_details = { ... }
     try:
-        test = CreateDeclaration(parking_place.get(), date.get(), name_yacht.get(), registration_number.get(),
-                                 home_port.get(), float(yacht_length.get()), float(yacht_width.get()),
-                                 yacht_type_var.get(), owner_details, commissioning_body, parking_peroid,
-                                 chip_card.get())
+        test = CreateDeclaration(owner_details, parking_peroid, commissioning_body, yaht_details)
 
         test.create_document()
         messagebox.showinfo("", 'Stworzono deklaracje oraz dodano klienta do bazy!')
         clear_text_boxes()
     except ValueError:
+        # jeżeli CreateDeclaration wywali jakiś wewnętrzny błąd, to ten except go wychwyci i bedzie kiszka.
+        # jeżeli ma byc to taki trochę ogólny expect, to niech będzie na lini 36-41 gdzie te hashe są tworzone.
+        # powinna być metoda w stylu "validate", która wywala gdy coś jest niepoprawne
         message = "Wprowadzono nieprawidłowe dane!\n Długość oraz szerokość jachtu musi być wpisana bez dodatkowych znaków!"
         messagebox.showerror("Błąd", message)
 
 
-def correct_my(value_if_allowed):
-    # Entry just float numbers to length and width
-    if value_if_allowed == "":
+def is_number_or_blank(val):
+    if val == "":
         return True
 
     try:
-        float(value_if_allowed)
+        float(val)
         return True
 
     except ValueError:
