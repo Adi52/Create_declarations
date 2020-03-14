@@ -3,8 +3,16 @@
 from docx import Document
 from CountParkingFee import CountParkingFee
 
-
+ # czy to dziedziczenie jest tutaj potrzebne, tylko po to, by mieć dostęp do 
+ # self.count_days i tych różnych self.fees? bardzo słaby pomysł,
+# bo Proces tworzenie deklaracji ma bardzo mało wspólnego z opłatą
+# Idealnie, to API wyglądało by tak:
+# place = ParkingPlace(home_port, chip_card, parking_place)
+# yaht = Yaht(name, registration, withth, length, type)
+# owner = Owner(name, 
+#
 class CreateDeclaration(CountParkingFee):
+    
     def __init__(self, parking_place, date, name_yacht, registration_number, home_port, yacht_length, yacht_width,
                  yacht_type, owner_details, commissioning_body, parking_peroid, chip_card):
         super().__init__(parking_peroid, yacht_length, yacht_width)
@@ -13,12 +21,15 @@ class CreateDeclaration(CountParkingFee):
         self.days = self.count_days()
         self.parking_place = parking_place
         self.date = date
+        # ---- stwórz klase Yacht z tymi parametrami:
+        # albo zrób tak samo jak z owner_details
         self.name_yacht = name_yacht
         self.registration_number = registration_number
         self.home_port = home_port
         self.yacht_length = yacht_length
         self.yacht_width = yacht_width
         self.yacht_type = yacht_type
+        # ----
         self.owner_details = owner_details
         self.commissioning_body = commissioning_body
 
