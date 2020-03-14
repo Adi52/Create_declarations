@@ -9,12 +9,13 @@ from CountParkingFee import CountParkingFee
 # Idealnie, to API wyglądało by tak:
 # place = ParkingPlace(home_port, chip_card, parking_place)
 # yaht = Yaht(name, registration, withth, length, type)
-# owner = Owner(name, 
-#
+# owner = Owner(name, ...)
+# declaration = Declaration(place = place, yaht = yaht, owner = owner)
+# declaration.save('dupa.docx')
+
 class CreateDeclaration(CountParkingFee):
     
-    def __init__(self, parking_place, date, name_yacht, registration_number, home_port, yacht_length, yacht_width,
-                 yacht_type, owner_details, commissioning_body, parking_peroid, chip_card):
+    def __init__(self, place: ParkingPlace, yaht: Yaht, owner: Person):
         super().__init__(parking_peroid, yacht_length, yacht_width)
         self.document = Document('deklaracja.docx')
         self.parking_peroid = parking_peroid
