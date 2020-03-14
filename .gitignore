@@ -1,2 +1,3 @@
 # Project exclude paths
 /venv/
+# jeżeli dodałeś /venv/ to dodaj przy okazji /.idea
